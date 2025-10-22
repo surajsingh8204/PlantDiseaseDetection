@@ -39,7 +39,7 @@ function App() {
     formData.append('crop', selectedCrop); // Send selected crop to backend
 
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+      const apiUrl = 'https://plant-disease-api-yt7l.onrender.com';
       const response = await axios.post(`${apiUrl}/predict`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -56,7 +56,7 @@ function App() {
       } else if (error.response) {
         alert(`Server error: ${error.response.status}. Please check the backend.`);
       } else if (error.request) {
-        alert('Cannot connect to backend server. Make sure it is running on http://192.168.43.93:8000');
+        alert('Cannot connect to backend server. Please wait a moment and try again.');
       } else {
         alert('Error: ' + error.message);
       }
