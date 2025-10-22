@@ -39,7 +39,8 @@ function App() {
     formData.append('crop', selectedCrop); // Send selected crop to backend
 
     try {
-      const response = await axios.post('http://192.168.43.93:8000/predict', formData, {
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+      const response = await axios.post(`${apiUrl}/predict`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
