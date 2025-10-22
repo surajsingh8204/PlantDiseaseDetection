@@ -29,6 +29,8 @@
 .container {
   max-width: 1200px;
   width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .header {
@@ -379,6 +381,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 800px;
+  box-sizing: border-box;
 }
 
 .results-section h2 {
@@ -537,13 +540,15 @@
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 15px;
+    width: 100%;
   }
 
   .crop-button {
     font-size: 0.9rem;
     padding: 10px 15px;
-    flex: 1 1 calc(50% - 10px);
-    min-width: calc(50% - 10px);
+    flex: 1 1 calc(50% - 5px);
+    min-width: calc(50% - 5px);
+    max-width: calc(50% - 5px);
   }
 
   .main-content {
@@ -651,21 +656,33 @@
 
 /* Extra small devices (phones in portrait mode) */
 @media (max-width: 480px) {
+  .App {
+    padding: 8px;
+  }
+
   .main-title h1 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+    margin-bottom: 10px;
   }
 
   .main-title p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .header h2 {
     font-size: 1.3rem;
   }
 
+  .crop-selector {
+    gap: 8px;
+  }
+
   .crop-button {
     font-size: 0.85rem;
     padding: 8px 12px;
+    flex: 1 1 calc(50% - 4px);
+    min-width: calc(50% - 4px);
+    max-width: calc(50% - 4px);
   }
 
   .dropzone {
@@ -678,11 +695,46 @@
   }
 
   .dropzone-text {
+    font-size: 0.95rem;
+  }
+
+  .dropzone-hint {
+    font-size: 0.8rem;
+  }
+
+  .preview-image {
+    max-height: 200px;
+  }
+
+  .camera-button {
     font-size: 0.9rem;
+    padding: 10px 16px;
+    height: 42px;
+  }
+
+  .tips-icon-button {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+    margin-top: -8px;
+  }
+
+  .predict-button {
+    font-size: 0.95rem;
+    padding: 12px 20px;
+  }
+
+  .results-section {
+    padding: 20px 15px;
   }
 
   .result-emoji {
     font-size: 1.8rem;
+  }
+
+  .result-header {
+    gap: 10px;
+    padding-bottom: 15px;
   }
 
   .result-header h3 {
@@ -691,5 +743,33 @@
 
   .healthy-emoji {
     padding: 8px 12px;
+  }
+
+  .detail-item {
+    padding: 10px;
+  }
+
+  .detail-label {
+    font-size: 0.85rem;
+  }
+
+  .detail-value {
+    font-size: 1rem;
+  }
+
+  .recommendations {
+    padding: 12px;
+  }
+
+  .recommendations h4 {
+    font-size: 0.95rem;
+  }
+
+  .recommendations li {
+    font-size: 0.85rem;
+  }
+
+  .modal-content {
+    padding: 20px;
   }
 }
