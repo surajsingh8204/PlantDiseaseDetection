@@ -44,7 +44,7 @@ function App() {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
-        timeout: 10000 // 10 second timeout
+        timeout: 120000 // 120 second timeout (for cold start on free tier)
       });
 
       setPrediction(response.data.class);
