@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
+import Cropper from 'react-easy-crop';
 import './App.css';
 
 function App() {
@@ -12,6 +13,13 @@ function App() {
   const [selectedCrop, setSelectedCrop] = useState('potato'); // New state for crop selection
   const cameraInputRef = useRef(null);
   const [showTips, setShowTips] = useState(false);
+  
+  // Cropping states
+  const [showCropModal, setShowCropModal] = useState(false);
+  const [imageToCrop, setImageToCrop] = useState(null);
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
 
   const onDrop = async (acceptedFiles) => {
     const file = acceptedFiles[0];
@@ -89,16 +97,75 @@ function App() {
       setPrediction(null);
       setConfidence(0);
       
-      setSelectedImage(file);
       const reader = new FileReader();
       reader.onloadend = () => {
-        setPreview(reader.result);
+        setImageToCrop(reader.result);
+        setShowCropModal(true);
       };
       reader.readAsDataURL(file);
-      
-      // Automatically trigger prediction for new image
-      await analyzImage(file);
     }
+  };
+
+  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+    setCroppedAreaPixels(croppedAreaPixels);
+  }, []);
+
+  const createCroppedImage = async () => {
+    try {
+      const croppedImage = await getCroppedImg(imageToCrop, croppedAreaPixels);
+      setPreview(croppedImage.url);
+      setSelectedImage(croppedImage.file);
+      setShowCropModal(false);
+      
+      // Automatically trigger prediction for cropped image
+      await analyzImage(croppedImage.file);
+    } catch (e) {
+      console.error('Error cropping image:', e);
+    }
+  };
+
+  const getCroppedImg = (imageSrc, pixelCrop) => {
+    return new Promise((resolve, reject) => {
+      const image = new Image();
+      image.src = imageSrc;
+      image.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = pixelCrop.width;
+        canvas.height = pixelCrop.height;
+
+        ctx.drawImage(
+          image,
+          pixelCrop.x,
+          pixelCrop.y,
+          pixelCrop.width,
+          pixelCrop.height,
+          0,
+          0,
+          pixelCrop.width,
+          pixelCrop.height
+        );
+
+        canvas.toBlob((blob) => {
+          if (!blob) {
+            reject(new Error('Canvas is empty'));
+            return;
+          }
+          const file = new File([blob], 'cropped-image.jpg', { type: 'image/jpeg' });
+          const url = URL.createObjectURL(blob);
+          resolve({ file, url });
+        }, 'image/jpeg');
+      };
+      image.onerror = reject;
+    });
+  };
+
+  const cancelCrop = () => {
+    setShowCropModal(false);
+    setImageToCrop(null);
+    setCrop({ x: 0, y: 0 });
+    setZoom(1);
   };
 
   const openCamera = () => {
@@ -466,6 +533,52 @@ function App() {
             </div>
           )}
         </div>
+
+        {/* Crop Modal */}
+        {showCropModal && (
+          <div className="modal-overlay">
+            <div className="crop-modal-content">
+              <button className="modal-close" onClick={cancelCrop}>×</button>
+              <h2 className="modal-title">Crop Your Image</h2>
+              
+              <div className="crop-container">
+                <Cropper
+                  image={imageToCrop}
+                  crop={crop}
+                  zoom={zoom}
+                  aspect={1}
+                  onCropChange={setCrop}
+                  onZoomChange={setZoom}
+                  onCropComplete={onCropComplete}
+                />
+              </div>
+              
+              <div className="crop-controls">
+                <label className="zoom-label">
+                  Zoom
+                  <input
+                    type="range"
+                    min={1}
+                    max={3}
+                    step={0.1}
+                    value={zoom}
+                    onChange={(e) => setZoom(e.target.value)}
+                    className="zoom-slider"
+                  />
+                </label>
+              </div>
+              
+              <div className="crop-buttons">
+                <button className="cancel-crop-button" onClick={cancelCrop}>
+                  Cancel
+                </button>
+                <button className="apply-crop-button" onClick={createCroppedImage}>
+                  ✓ Apply & Analyze
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         <footer className="footer">
           <p>Powered by TensorFlow & React | Deep Learning CNN Model</p>
