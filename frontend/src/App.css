@@ -234,7 +234,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: -14px;
+  margin-top: -17px;
 }
 
 .tips-icon-button:hover {
@@ -596,7 +596,7 @@
     width: 45px;
     height: 45px;
     font-size: 1.3rem;
-    margin-top: -10px;
+    margin-top: -13px;
   }
 
   .modal-content {
@@ -716,7 +716,7 @@
     width: 42px;
     height: 42px;
     font-size: 1.2rem;
-    margin-top: -8px;
+    margin-top: -11px;
   }
 
   .predict-button {
