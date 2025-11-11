@@ -754,14 +754,18 @@
     position: absolute;
     top: 10px;
     left: 10px;
+    right: 10px;
     gap: 6px;
     padding: 10px 12px;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
   }
 
   .category-tab {
     font-size: 0.75rem;
     padding: 6px 12px;
+    flex: 1;
+    max-width: 120px;
   }
 
   .crop-selector {
@@ -1169,8 +1173,9 @@
 /* Responsive for Disease List */
 @media (max-width: 768px) {
   .disease-list-button-container {
-    top: 10px;
+    top: 60px;
     right: 10px;
+    left: auto;
   }
 
   .disease-list-button {
