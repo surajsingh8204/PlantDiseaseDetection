@@ -730,7 +730,7 @@
 @media (max-width: 768px) and (min-width: 481px) {
   .App {
     padding: 10px;
-    padding-top: 20px;
+    padding-top: 60px;
   }
 
   .container {
@@ -743,7 +743,7 @@
 
   .main-title {
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 5px;
   }
 
   .main-title h1 {
@@ -930,7 +930,7 @@
 @media (max-width: 480px) {
   .App {
     padding: 8px;
-    padding-top: 45px;
+    padding-top: 55px;
   }
 
   .container {
@@ -942,7 +942,7 @@
   }
 
   .main-title {
-    margin-top: 10px;
+    margin-top: 5px;
   }
 
   .main-title h1 {
@@ -968,7 +968,7 @@
     gap: 5px;
     padding: 7px 10px;
     flex-wrap: nowrap;
-    max-width: 68%;
+    max-width: 62%;
     overflow-x: auto;
   }
 
