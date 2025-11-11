@@ -3,7 +3,7 @@
 [![Live Demo](https://img.shields.io/badge/demo-live-success)](https://plant-disease-frontend.onrender.com)
 [![Backend API](https://img.shields.io/badge/API-active-blue)](https://plant-disease-api-yt7l.onrender.com)
 
-AI-powered web application for detecting plant diseases across 5 crops using deep learning CNN models trained on TensorFlow. Deployed and accessible 24/7.
+AI-powered web application for detecting plant diseases across 10 crops using deep learning CNN models trained on TensorFlow. Deployed and accessible 24/7.
 
 ## 🌐 Live Application
 
@@ -14,24 +14,34 @@ AI-powered web application for detecting plant diseases across 5 crops using dee
 ## ✨ Features
 
 ### Core Functionality
-- 🌾 **5 Crop Support**: Potato 🥔, Pepper 🫑, Tomato 🍅, Maize 🌽, Apple 🍎
+- 🌾 **10 Crop Support**: Organized in 3 categories
+  - 🥔 **Vegetables**: Potato, Tomato, Bell Pepper
+  - 🍎 **Fruits**: Apple, Mango, Sugarcane
+  - � **Grains**: Rice, Wheat, Finger Millet, Maize
 - 🖼️ **Drag & Drop Interface**: Easy-to-use image upload
 - 📸 **Camera Capture**: Take photos directly from your device
 - ✂️ **Image Cropping**: Crop and adjust captured images before analysis
 - ⚡ **Real-time Detection**: Instant disease classification with confidence scores
 - 💊 **Treatment Recommendations**: Get actionable advice for detected diseases
-- 📱 **Mobile Responsive**: Fully optimized for smartphones and tablets
+- � **Crop-Disease Reference**: Comprehensive list of all crops and their diseases
+- �📱 **Mobile Responsive**: Fully optimized for smartphones and tablets
 - 💡 **Photo Tips**: Built-in guidance for taking quality plant photos
+- 🎨 **Category-Based Navigation**: Organized tabbed interface for easy crop selection
 
-### Supported Disease Classes (28 Total)
+### Supported Disease Classes (50+ Total)
 
-| Crop | Disease Classes | Count |
-|------|----------------|-------|
-| **Potato** | Early Blight, Late Blight, Healthy | 3 |
-| **Pepper** | Bacterial Spot, Healthy | 2 |
-| **Tomato** | Bacterial Spot, Early Blight, Late Blight, Leaf Mold, Septoria Leaf Spot, Spider Mites, Target Spot, Mosaic Virus, Yellow Leaf Curl Virus, Healthy | 10 |
-| **Maize** | Cercospora Leaf Spot, Common Rust, Northern Leaf Blight, Healthy | 4 |
-| **Apple** | Apple Scab, Black Rot, Cedar Apple Rust, Healthy | 4 |
+| Category | Crop | Disease Classes | Count |
+|----------|------|----------------|-------|
+| **🥔 Vegetables** | **Potato** | Early Blight, Late Blight, Healthy | 3 |
+| | **Tomato** | Bacterial Spot, Early Blight, Late Blight, Leaf Mold, Septoria Leaf Spot, Spider Mites, Target Spot, Mosaic Virus, Yellow Leaf Curl Virus, Healthy | 10 |
+| | **Bell Pepper** | Bacterial Spot, Healthy | 2 |
+| **🍎 Fruits** | **Apple** | Apple Scab, Black Rot, Cedar Apple Rust, Healthy | 4 |
+| | **Mango** | Anthracnose, Bacterial Canker, Cutting Weevil, Die Back, Gall Midge, Powdery Mildew, Sooty Mould, Healthy | 8 |
+| | **Sugarcane** | Bacterial Blight, Red Rot, Rust, Mosaic, Yellow Leaf Disease, Healthy | 6 |
+| **🌾 Grains** | **Rice** | Bacterial Leaf Blight, Brown Spot, Leaf Smut, Healthy | 4 |
+| | **Wheat** | Brown Rust, Yellow Rust, Healthy | 3 |
+| | **Finger Millet** | Blast (Downy), Mottle, Seedling Disease, Smut, Wilt, Healthy | 6 |
+| | **Maize** | Common Rust, Gray Leaf Spot, Northern Leaf Blight, Healthy | 4 |
 
 ## 🏗️ Project Structure
 
@@ -57,6 +67,26 @@ PlantDiseaseDetection/
 │   ├── 5/
 │   ├── 5.keras
 │   └── 5.h5
+├── models5/            # Wheat disease model
+│   ├── 6/
+│   ├── 6.keras
+│   └── 6.h5
+├── models6/            # Rice disease model
+│   ├── 7/
+│   ├── 7.keras
+│   └── 7.h5
+├── models7/            # Mango disease model
+│   ├── 8/
+│   ├── 8.keras
+│   └── 8.h5
+├── models8/            # Sugarcane disease model
+│   ├── 9/
+│   ├── 9.keras
+│   └── 9.h5
+├── models9/            # Finger Millet disease model
+│   ├── 10/
+│   ├── 10.keras
+│   └── 10.h5
 ├── backend/
 │   ├── main.py         # FastAPI backend server
 │   └── requirements.txt
@@ -66,7 +96,10 @@ PlantDiseaseDetection/
 │   ├── src/
 │   │   ├── App.js      # Main React component
 │   │   ├── App.css     # Styles
-│   │   └── index.js
+│   │   ├── index.js
+│   │   ├── vegi1.png   # Vegetables background
+│   │   ├── fruits1.jpg # Fruits background
+│   │   └── grains.jpg  # Grains background
 │   └── package.json
 ├── .gitignore
 └── README.md
@@ -126,15 +159,17 @@ PlantDiseaseDetection/
 ### Web Application
 
 1. Visit the live application or run locally
-2. **Select Crop Type**: Choose from Potato, Pepper, Tomato, Maize, or Apple
-3. **Upload Image**: 
+2. **Select Category**: Choose from Vegetables 🥔, Fruits 🍎, or Grains 🌾
+3. **Select Crop Type**: Pick the specific crop from the selected category
+4. **Upload Image**: 
    - Drag & drop an image, OR
    - Click to browse files, OR
    - Use camera to take a photo (with cropping)
-4. **View Results**: 
+5. **View Results**: 
    - Disease classification
    - Confidence percentage
    - Treatment recommendations
+6. **Crop-Disease List**: Click the 📋 button (top-right) to view all supported crops and diseases
 
 ### Camera & Cropping Feature
 
@@ -178,25 +213,25 @@ Predict disease from uploaded image
 - **Content-Type**: `multipart/form-data`
 - **Parameters**:
   - `file` (required): Image file (JPEG, PNG)
-  - `crop` (optional): Crop type - `potato`, `pepper`, `tomato`, `maize`, or `apple` (default: `potato`)
+  - `crop` (optional): Crop type - `potato`, `pepper`, `tomato`, `maize`, `apple`, `wheat`, `rice`, `mango`, `sugarcane`, or `finger_millet` (default: `potato`)
 
 **Example using curl:**
 ```bash
 curl -X POST "https://plant-disease-api-yt7l.onrender.com/predict" \
   -F "file=@plant_image.jpg" \
-  -F "crop=tomato"
+  -F "crop=mango"
 ```
 
 **Response:**
 ```json
 {
-  "class": "Tomato_Early_blight",
+  "class": "Mango_Anthracnose",
   "confidence": 0.9547,
-  "crop": "tomato",
+  "crop": "mango",
   "all_predictions": {
-    "Tomato_Bacterial_spot": 0.0012,
-    "Tomato_Early_blight": 0.9547,
-    "Tomato_Late_blight": 0.0023,
+    "Mango_Anthracnose": 0.9547,
+    "Mango_Bacterial_Canker": 0.0012,
+    "Mango_Cutting_Weevil": 0.0023,
     ...
   }
 }
@@ -211,8 +246,8 @@ curl -X POST "https://plant-disease-api-yt7l.onrender.com/predict" \
   - EXIF orientation correction
   - RGB conversion
   - High-quality resizing (LANCZOS)
-- **Training Dataset**: PlantVillage Dataset
-- **Total Models**: 5 (one per crop type)
+- **Training Dataset**: PlantVillage Dataset + Custom Datasets
+- **Total Models**: 10 (one per crop type)
 
 ## 🎨 Technologies Used
 
@@ -316,26 +351,38 @@ Contributions, issues, and feature requests are welcome!
 
 ### Desktop View
 - Clean, modern interface with gradient background
+- Category-based navigation (Vegetables, Fruits, Grains)
 - Crop selector with emoji icons
 - Drag & drop upload area
 - Real-time disease detection results
 - Treatment recommendations
+- Crop-Disease reference list modal
 
 ### Mobile View
 - Fully responsive layout
-- Touch-friendly buttons
+- Touch-friendly category tabs
+- Compact crop buttons
 - Camera capture with cropping
-- Optimized for small screens
+- Optimized disease list modal
+- Smooth scrolling and transitions
+
+### Tablet View
+- Optimized layout for medium screens
+- Comfortable touch targets
+- Adaptive spacing and sizing
 
 ## 🔮 Future Enhancements
 
-- [ ] Add more crop types (rice, wheat, cotton, etc.)
+- [ ] Add more crop types (cotton, groundnut, etc.)
 - [ ] Historical tracking of detections
 - [ ] Batch image processing
 - [ ] Export reports as PDF
-- [ ] Multi-language support
+- [ ] Multi-language support (Hindi, regional languages)
 - [ ] Integration with agricultural LLM chatbot
+- [ ] Weather-based disease prediction
+- [ ] Offline mode with PWA
 - [ ] Migration to DigitalOcean for 24/7 uptime
+- [ ] User authentication and saved history
 
 ## 📊 Performance
 

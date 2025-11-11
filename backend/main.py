@@ -28,6 +28,16 @@ TOMATO_MODEL = tf.keras.models.load_model(os.path.join(BASE_DIR, "models2", "3.h
 MAIZE_MODEL = tf.keras.models.load_model(os.path.join(BASE_DIR, "models3", "4.h5"), compile=False)
 # Load apple model
 APPLE_MODEL = tf.keras.models.load_model(os.path.join(BASE_DIR, "models4", "5.h5"), compile=False)
+# Load wheat model
+WHEAT_MODEL = tf.keras.models.load_model(os.path.join(BASE_DIR, "models5", "6.h5"), compile=False)
+# Load rice model
+RICE_MODEL = tf.keras.models.load_model(os.path.join(BASE_DIR, "models6", "7.h5"), compile=False)
+# Load mango model
+MANGO_MODEL = tf.keras.models.load_model(os.path.join(BASE_DIR, "models7", "8.h5"), compile=False)
+# Load sugarcane model
+SUGARCANE_MODEL = tf.keras.models.load_model(os.path.join(BASE_DIR, "models8", "9.h5"), compile=False)
+# Load finger millet model
+FINGER_MILLET_MODEL = tf.keras.models.load_model(os.path.join(BASE_DIR, "models9", "10.h5"), compile=False)
 
 # Class names for each crop
 POTATO_CLASSES = ["Potato___Early_blight", "Potato___Late_blight", "Potato___healthy"]
@@ -55,6 +65,41 @@ APPLE_CLASSES = [
     "Apple___Black_rot",
     "Apple___Cedar_apple_rust",
     "Apple___healthy"
+]
+WHEAT_CLASSES = [
+    "Wheat__brown_rust",
+    "Wheat__healthy",
+    "Wheat__septoria",
+    "Wheat__yellow_rust"
+]
+RICE_CLASSES = [
+    "Rice__brown_spot",
+    "Rice__healthy",
+    "Rice__hispa",
+    "Rice__leaf_blast",
+    "Rice__neck_blast"
+]
+MANGO_CLASSES = [
+    "anthracnose",
+    "die_black",
+    "gall_midge",
+    "healthy",
+    "powdery_mildew"
+]
+SUGARCANE_CLASSES = [
+    "Healthy",
+    "Mosaic",
+    "RedRot",
+    "Rust",
+    "Yellow"
+]
+FINGER_MILLET_CLASSES = [
+    "downy",
+    "healthy",
+    "mottle",
+    "seedling",
+    "smut",
+    "wilt"
 ]
 
 @app.get("/ping")
@@ -109,6 +154,26 @@ async def predict(
         model = APPLE_MODEL
         class_names = APPLE_CLASSES
         print("Using APPLE model")
+    elif crop.lower() == "wheat":
+        model = WHEAT_MODEL
+        class_names = WHEAT_CLASSES
+        print("Using WHEAT model")
+    elif crop.lower() == "rice":
+        model = RICE_MODEL
+        class_names = RICE_CLASSES
+        print("Using RICE model")
+    elif crop.lower() == "mango":
+        model = MANGO_MODEL
+        class_names = MANGO_CLASSES
+        print("Using MANGO model")
+    elif crop.lower() == "sugarcane":
+        model = SUGARCANE_MODEL
+        class_names = SUGARCANE_CLASSES
+        print("Using SUGARCANE model")
+    elif crop.lower() == "finger_millet":
+        model = FINGER_MILLET_MODEL
+        class_names = FINGER_MILLET_CLASSES
+        print("Using FINGER MILLET model")
     else:  # default to potato
         model = POTATO_MODEL
         class_names = POTATO_CLASSES
