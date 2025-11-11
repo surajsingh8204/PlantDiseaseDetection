@@ -730,7 +730,7 @@
 @media (max-width: 768px) and (min-width: 481px) {
   .App {
     padding: 10px;
-    padding-top: 20px;
+    padding-top: 80px;
   }
 
   .container {
@@ -743,7 +743,7 @@
 
   .main-title {
     margin-bottom: 20px;
-    margin-top: 70px;
+    margin-top: 20px;
   }
 
   .main-title h1 {
@@ -761,7 +761,7 @@
   }
 
   .category-tabs {
-    position: absolute;
+    position: fixed;
     top: 12px;
     left: 10px;
     right: auto;
@@ -1252,9 +1252,10 @@
   margin-left: -1em;
 }
 
-/* Responsive for Disease List */
-@media (max-width: 768px) {
+/* Responsive for Disease List - Tablets */
+@media (max-width: 768px) and (min-width: 481px) {
   .disease-list-button-container {
+    position: fixed;
     top: 12px;
     right: 10px;
     left: auto;
@@ -1374,7 +1375,7 @@
     font-size: 0.9rem;
     padding: 5px 0;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.95);
+    color: #ffffff;
   }
 
   .crop-item li::before {
