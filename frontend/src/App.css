@@ -16,7 +16,7 @@
   text-align: center;
   color: white;
   margin-bottom: 40px;
-  margin-top: 80px;
+  margin-top: 25px;
 }
 
 .main-title h1 {
@@ -733,7 +733,7 @@
 
   .main-title {
     margin-bottom: 20px;
-    margin-top: 140px;
+    margin-top: 20px;
   }
 
   .main-title h1 {
@@ -747,11 +747,11 @@
   .header h2 {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    margin-top: 20px;
+    margin-top: 15px;
   }
 
   .category-tabs {
-    position: fixed;
+    position: absolute;
     top: 10px;
     left: 10px;
     gap: 6px;
@@ -909,7 +909,7 @@
   }
 
   .main-title {
-    margin-top: 160px;
+    margin-top: 20px;
   }
 
   .main-title h1 {
@@ -923,7 +923,7 @@
 
   .header h2 {
     font-size: 1.3rem;
-    margin-top: 25px;
+    margin-top: 15px;
   }
 
   .crop-selector {
