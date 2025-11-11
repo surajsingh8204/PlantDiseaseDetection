@@ -16,6 +16,7 @@
   text-align: center;
   color: white;
   margin-bottom: 40px;
+  margin-top: 80px;
 }
 
 .main-title h1 {
@@ -732,6 +733,7 @@
 
   .main-title {
     margin-bottom: 20px;
+    margin-top: 140px;
   }
 
   .main-title h1 {
@@ -745,6 +747,7 @@
   .header h2 {
     font-size: 1.5rem;
     margin-bottom: 15px;
+    margin-top: 20px;
   }
 
   .category-tabs {
@@ -905,6 +908,10 @@
     padding: 8px;
   }
 
+  .main-title {
+    margin-top: 160px;
+  }
+
   .main-title h1 {
     font-size: 1.75rem;
     margin-bottom: 10px;
@@ -916,6 +923,7 @@
 
   .header h2 {
     font-size: 1.3rem;
+    margin-top: 25px;
   }
 
   .crop-selector {
