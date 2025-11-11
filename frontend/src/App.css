@@ -930,7 +930,7 @@
 @media (max-width: 480px) {
   .App {
     padding: 8px;
-    padding-top: 55px;
+    padding-top: 20px;
   }
 
   .container {
@@ -943,6 +943,7 @@
 
   .main-title {
     margin-top: 5px;
+    margin-bottom: 15px;
   }
 
   .main-title h1 {
@@ -959,17 +960,24 @@
     margin-top: 8px;
   }
 
-  /* Category tabs for small phones - scrollable with page */
+  /* Category tabs for small phones - centered below heading */
   .category-tabs {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    position: relative;
+    top: auto;
+    left: 50%;
     right: auto;
+    transform: translateX(-50%);
     gap: 5px;
     padding: 7px 10px;
     flex-wrap: nowrap;
-    max-width: 62%;
+    max-width: 95%;
+    width: 95%;
     overflow-x: auto;
+    overflow-y: visible;
+    margin-bottom: 10px;
+    justify-content: center;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
   }
 
   .category-tab {
@@ -977,6 +985,7 @@
     padding: 5px 8px;
     white-space: nowrap;
     flex-shrink: 0;
+    min-width: fit-content;
   }
 
   /* Enhanced active colors for small phones */
@@ -998,12 +1007,16 @@
     color: white;
   }
 
-  /* Disease list button scrollable with page on small phones */
+  /* Disease list button centered below category tabs on small phones */
   .disease-list-button-container {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    left: auto;
+    position: relative;
+    top: auto;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
   }
 
   .disease-list-button {
