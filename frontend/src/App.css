@@ -930,6 +930,7 @@
 @media (max-width: 480px) {
   .App {
     padding: 8px;
+    padding-top: 70px;
   }
 
   .container {
@@ -937,11 +938,11 @@
   }
 
   .header {
-    padding-top: 10px;
+    padding-top: 5px;
   }
 
   .main-title {
-    margin-top: 120px;
+    margin-top: 30px;
   }
 
   .main-title h1 {
@@ -958,43 +959,57 @@
     margin-top: 15px;
   }
 
-  /* Category tabs for small phones - wrap to two rows */
+  /* Category tabs for small phones - fixed top, horizontal only */
   .category-tabs {
-    top: 12px;
+    position: fixed;
+    top: 8px;
     left: 8px;
-    right: 8px;
-    gap: 6px;
-    padding: 8px 10px;
-    flex-wrap: wrap;
-    max-width: calc(100% - 16px);
+    right: auto;
+    gap: 5px;
+    padding: 6px 8px;
+    flex-wrap: nowrap;
+    max-width: 70%;
+    overflow-x: auto;
   }
 
   .category-tab {
-    font-size: 0.68rem;
-    padding: 6px 10px;
+    font-size: 0.65rem;
+    padding: 5px 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   /* Enhanced active colors for small phones */
   .category-tabs .category-tab:nth-child(1).active {
-    background: rgba(132, 204, 22, 0.9);
-    border: 2px solid rgba(132, 204, 22, 1);
+    background: #84cc16;
+    border: 2px solid #65a30d;
+    color: white;
   }
 
   .category-tabs .category-tab:nth-child(2).active {
-    background: rgba(255, 165, 0, 0.95);
-    border: 2px solid rgba(255, 165, 0, 1);
+    background: #f97316;
+    border: 2px solid #ea580c;
+    color: white;
   }
 
-  /* Disease list button below category tabs on small phones */
+  .category-tabs .category-tab:nth-child(3).active {
+    background: #a0826d;
+    border: 2px solid #8b7355;
+    color: white;
+  }
+
+  /* Disease list button fixed top right on small phones */
   .disease-list-button-container {
-    top: 65px;
+    position: fixed;
+    top: 8px;
     right: 8px;
     left: auto;
   }
 
   .disease-list-button {
-    padding: 7px 12px;
-    font-size: 0.68rem;
+    padding: 6px 10px;
+    font-size: 0.65rem;
+    white-space: nowrap;
   }
 
   .crop-selector {
@@ -1304,55 +1319,67 @@
 /* Additional responsive styles for small phones - Disease List Modal */
 @media (max-width: 480px) {
   .disease-list-content {
-    width: 98%;
+    width: 96%;
+    max-width: 96%;
+  }
+
+  .disease-list-header {
+    padding: 15px;
   }
 
   .disease-list-header h2 {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    font-weight: 700;
   }
 
   .close-modal-button {
-    width: 30px;
-    height: 30px;
-    font-size: 1rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
   }
 
   .disease-list-body {
-    padding: 12px 10px;
+    padding: 15px;
   }
 
   .crop-disease-section {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }
 
   .crop-disease-section h3 {
-    font-size: 0.95rem;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+    color: #22c55e;
   }
 
   .crop-item {
-    padding: 10px 12px;
-    margin-bottom: 10px;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    background: rgba(255, 255, 255, 0.08);
   }
 
   .crop-item h4 {
-    font-size: 0.85rem;
-    margin-bottom: 6px;
-    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #60a5fa;
   }
 
   .crop-item ul {
-    padding-left: 18px;
+    padding-left: 20px;
   }
 
   .crop-item li {
-    font-size: 0.78rem;
-    padding: 4px 0;
-    line-height: 1.4;
+    font-size: 0.9rem;
+    padding: 5px 0;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.95);
   }
 
   .crop-item li::before {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    color: #22c55e;
   }
 }
 
