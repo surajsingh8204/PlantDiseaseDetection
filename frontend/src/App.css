@@ -733,6 +733,14 @@
     padding-top: 20px;
   }
 
+  .container {
+    padding: 0 5px;
+  }
+
+  .header {
+    padding-top: 10px;
+  }
+
   .main-title {
     margin-bottom: 20px;
     margin-top: 70px;
@@ -754,10 +762,10 @@
 
   .category-tabs {
     position: absolute;
-    top: 10px;
+    top: 12px;
     left: 10px;
     right: auto;
-    gap: 6px;
+    gap: 8px;
     padding: 10px 12px;
     flex-direction: row;
     justify-content: flex-start;
@@ -767,6 +775,17 @@
     font-size: 0.75rem;
     padding: 6px 12px;
     white-space: nowrap;
+  }
+
+  /* Make active colors more visible on mobile */
+  .category-tabs .category-tab:nth-child(1).active {
+    background: rgba(132, 204, 22, 0.85);
+    border: 2px solid rgba(132, 204, 22, 1);
+  }
+
+  .category-tabs .category-tab:nth-child(2).active {
+    background: rgba(255, 165, 0, 0.95);
+    border: 2px solid rgba(255, 165, 0, 1);
   }
 
   .crop-selector {
@@ -1174,13 +1193,13 @@
 /* Responsive for Disease List */
 @media (max-width: 768px) {
   .disease-list-button-container {
-    top: 10px;
+    top: 12px;
     right: 10px;
     left: auto;
   }
 
   .disease-list-button {
-    padding: 8px 12px;
+    padding: 8px 14px;
     font-size: 0.75rem;
     gap: 4px;
   }
