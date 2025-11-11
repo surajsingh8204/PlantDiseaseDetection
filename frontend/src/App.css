@@ -726,8 +726,8 @@
   margin: 0;
 }
 
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
+/* Mobile Responsive Styles (tablets) */
+@media (max-width: 768px) and (min-width: 481px) {
   .App {
     padding: 10px;
     padding-top: 20px;
