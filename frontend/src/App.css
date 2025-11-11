@@ -735,7 +735,7 @@
 
   .main-title {
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 70px;
   }
 
   .main-title h1 {
@@ -1174,7 +1174,7 @@
 /* Responsive for Disease List */
 @media (max-width: 768px) {
   .disease-list-button-container {
-    top: 60px;
+    top: 10px;
     right: 10px;
     left: auto;
   }
