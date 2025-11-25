@@ -97,7 +97,7 @@ PlantDiseaseDetection/
 │   │   ├── App.js      # Main React component
 │   │   ├── App.css     # Styles
 │   │   ├── index.js
-│   │   ├── vegi1.png   # Vegetables background
+│   │   ├── vegi2.png   # Vegetables background
 │   │   ├── fruits1.jpg # Fruits background
 │   │   └── grains.jpg  # Grains background
 │   └── package.json

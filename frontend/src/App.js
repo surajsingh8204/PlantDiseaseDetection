@@ -3,7 +3,7 @@ import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
 import Cropper from 'react-easy-crop';
 import './App.css';
-import vegiBackground from './vegi1.png';
+import vegiBackground from './vegi2.png';
 import fruitsBackground from './fruits1.jpg';
 import grainsBackground from './grains.jpg';
 
