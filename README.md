@@ -1,14 +1,14 @@
 # 🌱 Plant Disease Detection - Multi-Crop AI Web Application
 
 [![Live Demo](https://img.shields.io/badge/demo-live-success)](https://plant-disease-frontend-ibpp.onrender.com)
-[![Backend API](https://img.shields.io/badge/API-active-blue)](https://plant-disease-api-yt7l.onrender.com)
+
 
 AI-powered web application for detecting plant diseases across 10 crops using deep learning CNN models trained on TensorFlow. Deployed and accessible 24/7.
 
 ## 🌐 Live Application
 
 - **Frontend**: [https://plant-disease-frontend-ibpp.onrender.com](https://plant-disease-frontend-ibpp.onrender.com)
-- **Backend API**: [https://plant-disease-api-yt7l.onrender.com](https://plant-disease-api-yt7l.onrender.com)
+
 - **GitHub**: [https://github.com/surajsingh8204/PlantDiseaseDetection](https://github.com/surajsingh8204/PlantDiseaseDetection)
 
 ## ✨ Features
@@ -193,7 +193,7 @@ Click the tips button (💡) to see guidelines for best results:
 ## 🧪 API Documentation
 
 ### Base URL
-- **Production**: `https://plant-disease-api-yt7l.onrender.com`
+
 - **Local**: `http://localhost:8000`
 
 ### Endpoints
@@ -217,7 +217,7 @@ Predict disease from uploaded image
 
 **Example using curl:**
 ```bash
-curl -X POST "https://plant-disease-api-yt7l.onrender.com/predict" \
+curl -X POST "" \
   -F "file=@plant_image.jpg" \
   -F "crop=mango"
 ```
