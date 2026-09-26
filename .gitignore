@@ -54,6 +54,8 @@ Thumbs.db
 
 # Logs
 *.log
+
+*.ipynb linguist-language=Python
 logs/
 
 # Temporary files
